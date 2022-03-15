@@ -5,8 +5,5 @@
   connection: local
   gather_facts: true
 
-  vars_files:
-    - group_vars/common.yml
-
-  roles:
-    - roles/resourcegroup
+  tasks:
+    - debug: msg=" has powerstate "    
