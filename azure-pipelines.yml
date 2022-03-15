@@ -31,7 +31,7 @@ steps:
 - script: ansible-galaxy collection install azure.azcollection
   displayName: 'Install Ansible Azure Collection'
   
-- script: ansible-playbook -i inv site.yml
+- script: ansible-playbook -i 'bazeausrpan05,' site.yml
   displayName: 'Run Ansible Playbook'
   env:
     AZURE_CLIENT_ID: $(ARM_CLIENT_ID)
