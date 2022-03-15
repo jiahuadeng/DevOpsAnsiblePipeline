@@ -1,0 +1,22 @@
+- name: Install Sublime
+  hosts: bazeausrpan05
+  connection: local
+  gather_facts: true  
+#  gather_facts: no
+  become_method: runas
+  become: yes
+  tasks:
+      - name: Create directory structure
+        win_file:
+          path: F:\Software
+          state: directory
+
+      - name: Copy a single file where the source is on the remote host
+        ansible.windows.win_copy:
+          src: \\baneausstgrpa.file.core.windows.net\coe\Software\sublime_text_build_4126_x64_setup.exe
+          dest: F:\Software\sublime_text_build_4126_x64_setup.exe
+          remote_src: yes
+
+      - name: Install Wincollect
+        win_command: F:\Software\sublime_text_build_4126_x64_setup.exe /SP- /VERYSILENT /NORESTART
+
